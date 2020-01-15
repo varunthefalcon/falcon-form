@@ -1,7 +1,7 @@
 {
   "name": "falcon-form",
-  "version": "1.0.0",
-  "description": "easy form and error handle",
+  "version": "1.0.1",
+  "description": "Handles React hooks form and error values",
   "author": "varunthefalcon",
   "license": "MIT",
   "repository": "varunthefalcon/falcon-form",

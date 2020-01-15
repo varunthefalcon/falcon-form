@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const useValidateForm = (initValues, successCallback, fieldValidators) => {
+const falconForm = (initValues, successCallback, fieldValidators) => {
   const [values, setValues] = useState({ ...initValues })
 
   const [dirtyInit, setDirtyInit] = useState({ ...initValues })
@@ -74,4 +74,16 @@ const useValidateForm = (initValues, successCallback, fieldValidators) => {
   }
 }
 
-export default useValidateForm
+export default falconForm
+
+const emailRegex = /\S+@\S+\.\S+/
+
+export const isRequired = value => !value && 'Field is required'
+
+export const isEmail = value =>
+  !emailRegex.test(value) && 'Field must be a valid email'
+
+export const applyCustomValidationMessage = (method, message) => (
+    value,
+    allvalue
+  ) => method(value, allvalue) && message
