@@ -14,7 +14,7 @@ const useValidateForm = (initValues, successCallback, fieldValidators) => {
   }
 
   const [errors, setErrors] = useState({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [, setIsSubmitting] = useState(false)
 
   const validate = fieldValues => {
     let newErrors = {}
