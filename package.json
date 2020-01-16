@@ -1,6 +1,6 @@
 {
   "name": "falcon-form",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Handles React hooks form and error values",
   "author": "varunthefalcon",
   "license": "MIT",

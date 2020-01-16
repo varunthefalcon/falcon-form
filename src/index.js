@@ -49,7 +49,7 @@ const falconForm = (initValues, successCallback, fieldValidators) => {
     let anyErrors = validate(values)
     if (Object.keys(anyErrors).length === 0) {
       setIsSubmitting(true)
-      successCallback()
+      successCallback(values)
       setIsSubmitting(false)
     } else {
       setErrors(anyErrors)
@@ -83,7 +83,7 @@ export const isRequired = value => !value && 'Field is required'
 export const isEmail = value =>
   !emailRegex.test(value) && 'Field must be a valid email'
 
-export const applyCustomValidationMessage = (method, message) => (
+export const customValidation = (method, message) => (
     value,
     allvalue
   ) => method(value, allvalue) && message
