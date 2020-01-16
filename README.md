@@ -4,8 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/falcon-form.svg)](https://www.npmjs.com/package/falcon-form) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![npm](https://img.shields.io/npm/dt/falcon-form.svg?style=flat-square)](https://www.npmjs.com/package/falcon-form)
-![dep](https://badgen.net/david/dep/bluebill1049/falcon-form)
-[![npm](https://badgen.net/bundlephobia/minzip/falcon-form)](https://badgen.net/bundlephobia/minzip/falcon-form)
+![npm bundle size](https://img.shields.io/bundlephobia/min/falcon-form)
 
 ## Install
 
@@ -15,7 +14,14 @@ npm install --save falcon-form
 
 ## Demo
 
-https://codesandbox.io/s/falcon-form-izvhv [https://codesandbox.io/s/falcon-form-izvhv]
+Codesandbox [here](https://codesandbox.io/s/falcon-form-izvhv)
+
+## Features
+
+- Specific message for custom conditionals.
+- React-native support.
+- [Tiny bundle](https://bundlephobia.com/result?p=falcon-form@latest) with no dependencies.
+- native HTML support.
 
 ## Usage
 
