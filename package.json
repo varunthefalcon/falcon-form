@@ -1,6 +1,6 @@
 {
   "name": "falcon-form",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Form handling and error validation in React hooks.",
   "author": "varunthefalcon",
   "license": "MIT",
@@ -17,9 +17,7 @@
     "test:watch": "react-scripts test --env=jsdom",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "prepare": "npm run build",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "react": "^16.9.0"
