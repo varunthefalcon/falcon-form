@@ -25,7 +25,7 @@ const falconForm = (initValues, successCallback, fieldValidators) => {
       if (typeof valitationExp === 'function') {
         valitationExps = [valitationExps]
       }
-      Array.isArray(valitationExps) &&
+      if (Array.isArray(valitationExps)) {
         valitationExps.forEach(valitationExp => {
           if (
             typeof valitationExp === 'function' &&
@@ -40,25 +40,34 @@ const falconForm = (initValues, successCallback, fieldValidators) => {
             delete oldErrors[field]
           }
         })
+      }
     })
     return { ...oldErrors, ...newErrors }
   }
 
   const formSubmit = event => {
     event.preventDefault()
+    setIsSubmitting(true)
     let anyErrors = validate(values)
     if (Object.keys(anyErrors).length === 0) {
-      setIsSubmitting(true)
       successCallback(values)
-      setIsSubmitting(false)
     } else {
       setErrors(anyErrors)
     }
+    setIsSubmitting(false)
   }
 
   const fieldChange = event => {
-    event.preventDefault()
-    let { name, value } = event.target
+    let { name, value, type, checked } = event.target
+    if (type === 'checkbox') {
+      const checkboxValues = values[name]
+      if (Array.isArray(checkboxValues)) {
+        value = checked ? [...checkboxValues, value] : checkboxValues.filter(e => e !== value)
+      } else {
+        value = checked
+        console.warn('[violation] Initial value for checkbox field "' + name + '" should be array.', checked)
+      }
+    }
     setValues(values => ({
       ...values,
       [name]: value
@@ -84,6 +93,13 @@ export const isEmail = value =>
   !emailRegex.test(value) && 'Field must be a valid email'
 
 export const customValidation = (method, message) => (
-    value,
-    allvalue
-  ) => method(value, allvalue) && message
+  value,
+  allvalue
+) => method(value, allvalue) && message
+
+export const checkboxHelper = (data, value) => {
+  if (Array.isArray(data)) {
+    return data.includes(value)
+  }
+  return data
+}

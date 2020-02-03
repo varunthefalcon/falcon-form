@@ -1,6 +1,6 @@
 {
   "name": "falcon-form",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Form handling and error validation in React hooks.",
   "author": "varunthefalcon",
   "license": "MIT",
@@ -66,12 +66,13 @@
     "rollup-plugin-url": "^2.1.0"
   },
   "keywords": [
+    "react",
     "reactjs",
-    "react-hooks",
-    "react-form",
-    "react-native",
+    "controlled-inputs",
     "form-validation",
     "error-handling",
-    "react"
+    "react-hooks",
+    "react-form",
+    "react-native"
   ]
 }

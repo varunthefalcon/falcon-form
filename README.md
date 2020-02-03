@@ -18,6 +18,8 @@ Codesandbox [here](https://codesandbox.io/s/falcon-form-izvhv)
 
 ## Features
 
+- No Wrapper | No HOC | Just KISS.
+- Your design, our logics.
 - Specific message for custom conditionals.
 - React-native support.
 - [Tiny bundle](https://bundlephobia.com/result?p=falcon-form@latest) with no dependencies.
@@ -27,14 +29,15 @@ Codesandbox [here](https://codesandbox.io/s/falcon-form-izvhv)
 
 ```jsx
 import React, { useState } from "react";
-import falconForm, { isRequired, isEmail } from "falcon-form";
+import falconForm, { isRequired, isEmail, checkboxHelper } from "falcon-form";
 
 var renderCount = 0;
 
 const App = () => {
   let [formInitialValues] = useState({
     email: "",
-    name: ""
+    name: "",
+    department: []
   }); // getInitialValues, use setFormInitialValues to set data from API
 
   const formSubmitAction = values => {
@@ -80,6 +83,24 @@ const App = () => {
         {errors.email}
         <br />
         <br />
+        <input
+          type="checkbox"
+          name="department"
+          id="ece"
+          value="ece"
+          checked={checkboxHelper(values.department, "ece")}
+          onChange={fieldChange}
+        /> ECE
+        <input
+          type="checkbox"
+          name="department"
+          id="cse"
+          value="cse"
+          checked={checkboxHelper(values.department, "cse")}
+          // checkboxHelper equivalent to values.department.includes('ece'), with single checkbox support
+          onChange={fieldChange}
+        />{" "}
+        CSE
         <input type="submit" value="Submit" />
       </form>
     </div>
