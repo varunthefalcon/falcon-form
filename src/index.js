@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const falconForm = (initValues, successCallback, fieldValidators) => {
+const falconForm = (initValues = {}, successCallback, fieldValidators = {}) => {
   const [values, setValues] = useState({ ...initValues })
 
   const [dirtyInit, setDirtyInit] = useState({ ...initValues })
